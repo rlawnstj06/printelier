@@ -57,11 +57,21 @@
     {
       "id": "dino-dig",
       "title": "Dino dig kits",
-      "desc": "The upgrade: bones buried in a dig box, shovel and pick included. Excavate, then build your dinosaur.",
-      "priceFrom": 35,
-      "priceTypical": 60,
+      "desc": "Bones, a dig tray, shovel and pick. Bury them in real backyard dirt, excavate, then build your dinosaur.",
+      "priceFrom": 30,
+      "priceTypical": 50,
       "img": "https://images.unsplash.com/photo-1778971635454-ab501aba7e61?auto=format&fit=crop&w=900&q=80",
       "alt": "A child excavating dinosaur bones from a dig kit with little tools",
+      "active": true
+    },
+    {
+      "id": "dino-balance",
+      "title": "Dino balance game",
+      "desc": "Stack the dinos on the rocker without a tumble. Steady hands win. Name on the rocker, on request.",
+      "priceFrom": 26,
+      "priceTypical": 42,
+      "img": "https://images.unsplash.com/photo-1594745087095-65dc6316dab6?auto=format&fit=crop&w=900&q=80",
+      "alt": "Colourful toy dinosaurs ready for a balancing game",
       "active": true
     },
     {
