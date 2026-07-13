@@ -150,6 +150,9 @@ a { color: inherit; }
 .card-body { padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .card-body p { color: var(--ink-soft); font-size: 15px; flex: 1; }
 .price { font-weight: 700; color: var(--clay); font-size: 15.5px; }
+.live-tag { color: var(--clay-deep); }
+.card-live { box-shadow: var(--shadow-sm), 0 0 0 2px oklch(60% 0.13 42 / 0.25); }
+.card-live:hover { box-shadow: var(--shadow), 0 0 0 2.5px var(--clay); }
 .card-idea { background: var(--clay); color: oklch(98% 0.01 60); justify-content: center; }
 .card-idea h3 { color: #fff; font-size: 26px; }
 .card-idea p { color: oklch(92% 0.03 50); }

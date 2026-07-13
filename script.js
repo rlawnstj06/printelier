@@ -23,8 +23,18 @@ const escHtml = (s) =>
 function renderProducts() {
   const grid = document.getElementById('workGrid');
   grid.innerHTML =
-    PRODUCTS.map(
-      (p) => `
+    PRODUCTS.map((p) =>
+      p.editor
+        ? `
+    <a class="card card-live reveal" href="editor.html?item=${escHtml(p.id)}">
+      <img src="${escHtml(p.img)}" alt="${escHtml(p.alt || p.title)}" loading="lazy" decoding="async" />
+      <div class="card-body">
+        <h3>${escHtml(p.title)}</h3>
+        <p>${escHtml(p.desc)}</p>
+        <span class="price">from $${p.priceFrom} · <b class="live-tag">🎨 Design it in 3D →</b></span>
+      </div>
+    </a>`
+        : `
     <a class="card reveal" href="#order" data-item="${escHtml(p.title)}">
       <img src="${escHtml(p.img)}" alt="${escHtml(p.alt || p.title)}" loading="lazy" decoding="async" />
       <div class="card-body">
@@ -135,5 +145,29 @@ form.addEventListener('submit', async (e) => {
   btn.disabled = false;
   btn.textContent = 'Request my free preview';
 });
+
+// ---------- 3D 에디터에서 만든 디자인 자동 입력 ----------
+(function applyEditorConfig() {
+  try {
+    const raw = localStorage.getItem('plt_config');
+    if (!raw) return;
+    const c = JSON.parse(raw);
+    if (Date.now() - c.at > 3600000) return localStorage.removeItem('plt_config'); // 1시간 지난 건 무시
+    localStorage.removeItem('plt_config');
+    // 폼에 디자인 내용 채우기
+    const sel = document.getElementById('itemSelect');
+    const fill = () => {
+      for (const opt of sel.options) if (opt.text === c.item) { sel.value = opt.value; break; }
+    };
+    fill();
+    setTimeout(fill, 800); // products.json 로드 후 한 번 더
+    document.querySelector('input[name="personalization"]').value =
+      `"${c.text}" · ${c.font} · base ${c.baseColor} · lettering ${c.textColor}`;
+    const noteEl = document.getElementById('formNote');
+    noteEl.textContent = '✓ Your 3D design details are filled in — just add your name and email.';
+    noteEl.classList.add('ok');
+    location.hash = '#order';
+  } catch {}
+})();
 
 loadData();

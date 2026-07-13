@@ -1,6 +1,17 @@
 {
   "items": [
     {
+      "id": "name-keychain",
+      "title": "Name keychains",
+      "desc": "Their name, ready to clip on a backpack or keys. Design it live in 3D.",
+      "priceFrom": 12,
+      "priceTypical": 20,
+      "img": "https://images.unsplash.com/photo-1638959492386-f9a68d55c374?auto=format&fit=crop&w=900&q=80",
+      "alt": "Colorful personalized name keychains, freshly printed",
+      "active": true,
+      "editor": { "type": "keychain", "text": "ALEX" }
+    },
+    {
       "id": "name-signs",
       "title": "Name signs & nightlights",
       "desc": "Their name in warm light. The nursery gift that gets asked about.",
@@ -8,7 +19,19 @@
       "priceTypical": 45,
       "img": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=900&q=80",
       "alt": "A child's name glowing softly as a custom nightlight",
-      "active": true
+      "active": true,
+      "editor": { "type": "nameplate", "text": "Mila" }
+    },
+    {
+      "id": "cake-topper",
+      "title": "Cake toppers",
+      "desc": "A name or a message crowning the cake. Photos love it.",
+      "priceFrom": 15,
+      "priceTypical": 25,
+      "img": "https://images.unsplash.com/photo-1617272949720-7f735c54a1bc?auto=format&fit=crop&w=900&q=80",
+      "alt": "A personalized topper standing on a birthday cake",
+      "active": true,
+      "editor": { "type": "topper", "text": "Happy 5th" }
     },
     {
       "id": "lithophanes",
