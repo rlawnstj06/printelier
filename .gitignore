@@ -1,6 +1,7 @@
 # 관리자 도구 — 로컬 전용, 공개 사이트에 절대 올리지 않음 (보안)
 admin.html
 admin-server.js
+관리자 열기.bat
 
 # 문서 / 내부 메모
 README.md
