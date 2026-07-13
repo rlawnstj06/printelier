@@ -1,0 +1,13 @@
+# 관리자 도구 — 로컬 전용, 공개 사이트에 절대 올리지 않음 (보안)
+admin.html
+admin-server.js
+
+# 문서 / 내부 메모
+README.md
+PRODUCT.md
+
+# 시스템
+node_modules/
+.DS_Store
+Thumbs.db
+.env

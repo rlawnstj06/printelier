@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "id": "name-signs",
+      "title": "Name signs & nightlights",
+      "desc": "Their name in warm light. The nursery gift that gets asked about.",
+      "priceFrom": 25,
+      "priceTypical": 45,
+      "img": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=900&q=80",
+      "alt": "A child's name glowing softly as a custom nightlight",
+      "active": true
+    },
+    {
+      "id": "lithophanes",
+      "title": "Photo lithophanes",
+      "desc": "Your photo, hidden in the print until the light comes on. Pure magic.",
+      "priceFrom": 45,
+      "priceTypical": 70,
+      "img": "https://images.unsplash.com/photo-1611505908502-5b67e53e3a76?auto=format&fit=crop&w=900&q=80",
+      "alt": "A photo lithophane revealing a family portrait when lit",
+      "active": true
+    },
+    {
+      "id": "articulated-toys",
+      "title": "Articulated toys",
+      "desc": "Dragons, dinos and fidgets that flex and click. Printed in one piece.",
+      "priceFrom": 15,
+      "priceTypical": 28,
+      "img": "https://images.unsplash.com/photo-1596138252452-463802fb8fc1?auto=format&fit=crop&w=900&q=80",
+      "alt": "An articulated dragon toy, printed in one piece, no assembly",
+      "active": true
+    },
+    {
+      "id": "kids-decor",
+      "title": "Kids room decor",
+      "desc": "Hooks, shelves, signs and little worlds, matched to their room.",
+      "priceFrom": 20,
+      "priceTypical": 38,
+      "img": "https://images.unsplash.com/photo-1498940757830-82f7813bf178?auto=format&fit=crop&w=900&q=80",
+      "alt": "Playful custom decor in a kid's room",
+      "active": true
+    },
+    {
+      "id": "planters",
+      "title": "Planters & home decor",
+      "desc": "Sculptural pieces you will not find in any store. Because there is only one.",
+      "priceFrom": 18,
+      "priceTypical": 32,
+      "img": "https://images.unsplash.com/photo-1572688484438-313a6e50c333?auto=format&fit=crop&w=900&q=80",
+      "alt": "A sculptural planter on a bright shelf",
+      "active": true
+    }
+  ]
+}

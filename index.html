@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Printelier · Custom 3D Print Studio, Vancouver</title>
+<meta name="description" content="One-of-a-kind 3D printed keepsakes, toys and decor, personalized with a name, a photo, a moment. Designed and printed in Vancouver, BC. Free design preview before you pay." />
+<!-- TODO(준서님): 커스텀 도메인 연결하면 아래 URL을 그 도메인으로 교체 -->
+<link rel="canonical" href="https://rlawnstj06.github.io/printelier/" />
+<meta name="theme-color" content="#c15f3c" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+<!-- 소셜 공유 카드 (FB 메시지/포스트에서 링크가 예쁘게 보임 — FB 유입 사업의 필수) -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://rlawnstj06.github.io/printelier/" />
+<meta property="og:title" content="Printelier · Custom 3D Print Studio, Vancouver" />
+<meta property="og:description" content="Personalized 3D printed keepsakes, toys and decor. Free design preview, you only pay when you love it. Local pickup in Vancouver." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1642969164999-979483e21601?auto=format&fit=crop&w=1200&q=80" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- 구글 로컬 검색용 구조화 데이터: "custom 3d printing vancouver" 검색에 잡히는 열쇠 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Printelier",
+  "description": "Custom 3D print studio in Vancouver, BC. Personalized keepsakes, toys and home decor with free design previews.",
+  "areaServed": "Vancouver, BC",
+  "address": { "@type": "PostalAddress", "addressLocality": "Vancouver", "addressRegion": "BC", "addressCountry": "CA" },
+  "email": "vestpaul@gmail.com",
+  "priceRange": "$15-$100",
+  "founder": { "@type": "Person", "name": "Junseo" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much does a custom 3D printed piece cost?", "acceptedAnswer": { "@type": "Answer", "text": "Most pieces land between $15 and $60. Larger or intricate work can be more. You always get an exact price with your free design preview, before any payment." } },
+    { "@type": "Question", "name": "How do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "Interac e-Transfer once you approve your preview, or cash at pickup. Purchases can also be completed on Facebook Marketplace." } },
+    { "@type": "Question", "name": "How long does a custom order take?", "acceptedAnswer": { "@type": "Answer", "text": "Most pieces are designed, printed and finished within 3 to 7 days." } },
+    { "@type": "Question", "name": "Do you ship or is it pickup only?", "acceptedAnswer": { "@type": "Answer", "text": "Free pickup in Vancouver, local delivery for a small fee, and shipping anywhere in Canada via Canada Post at cost." } }
+  ]
+}
+</script>
+
+<!-- TODO(준서님): 방문자 분석 — analytics.google.com에서 GA4 속성 만들고 아래 주석 해제 후 G-XXXXXXX 교체
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-XXXXXXX');</script>
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav id="nav">
+  <a class="wordmark" href="#top">Printelier<span>.</span></a>
+  <div class="nav-links">
+    <a href="#work">What we make</a>
+    <a href="#how">How it works</a>
+    <a href="#maker">About</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a class="btn btn-primary btn-sm" href="#order">Start a custom order</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-copy reveal">
+    <p class="eyebrow">Vancouver, BC · Custom 3D print studio</p>
+    <h1>Made just<br />for <em>them</em>.</h1>
+    <p class="lede">
+      One-of-a-kind keepsakes, toys and decor, personalized with a name,
+      a photo, a moment. Designed and 3D printed here in Vancouver,
+      ready in days.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#order">Start a custom order</a>
+      <a class="btn btn-ghost" href="#work">See what we make</a>
+    </div>
+    <p class="hero-note">Free design preview · You only pay when you love it</p>
+  </div>
+  <div class="hero-visual reveal">
+    <!-- TODO(준서님): 실제 작품 사진으로 교체하세요 — 사진이 전환율의 핵심입니다 -->
+    <img src="https://images.unsplash.com/photo-1642969164999-979483e21601?auto=format&fit=crop&w=1200&q=80"
+         alt="A custom piece taking shape on the printer, layer by layer" />
+    <div class="hero-badge">
+      <strong>Local pickup</strong>
+      <span>Vancouver &amp; nearby</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PROMISES ============ -->
+<section class="promises">
+  <div class="promise reveal">
+    <div class="promise-icon">👀</div>
+    <h3>Preview before you pay</h3>
+    <p>We design your piece first and send you a preview. You pay only when you love it. No deposit, no risk.</p>
+  </div>
+  <div class="promise reveal">
+    <div class="promise-icon">🤍</div>
+    <h3>The perfect-print promise</h3>
+    <p>If your piece arrives less than perfect, we reprint it free. No forms, no arguing, no fuss.</p>
+  </div>
+  <div class="promise reveal">
+    <div class="promise-icon">⚡</div>
+    <h3>Days, not weeks</h3>
+    <p>Most pieces are ready in 3 to 7 days. Free pickup in Vancouver, or delivery for a small fee.</p>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="work" id="work">
+  <div class="section-head reveal">
+    <h2>What we make</h2>
+    <p>Every piece starts as a conversation. Here is where most people begin.</p>
+  </div>
+  <!-- 제품은 products.json에서 로드 — 커맨드 센터 SITE 페이지에서 추가/수정/가격변경 -->
+  <div class="work-grid" id="workGrid"></div>
+</section>
+
+<!-- ============ REVIEWS (실제 후기가 생기면 자동 표시, 가짜 없음) ============ -->
+<section class="reviews" id="reviews" hidden>
+  <div class="section-head reveal">
+    <h2>Kind words</h2>
+    <p>From real customers in Vancouver.</p>
+  </div>
+  <div class="reviews-grid" id="reviewsGrid"></div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how">
+  <div class="section-head reveal">
+    <h2>How it works</h2>
+    <p>Three steps. No payment until you approve the design.</p>
+  </div>
+  <ol class="steps">
+    <li class="reveal">
+      <span class="step-num">1</span>
+      <h3>Tell us the idea</h3>
+      <p>Fill the short form below with the name, photo or idea. Takes two minutes.</p>
+    </li>
+    <li class="reveal">
+      <span class="step-num">2</span>
+      <h3>Approve your preview</h3>
+      <p>Within 24 hours we reply with a design preview and an exact price. Change anything you like.</p>
+    </li>
+    <li class="reveal">
+      <span class="step-num">3</span>
+      <h3>Pick it up, or we deliver</h3>
+      <p>Pay by Interac e-Transfer or cash at pickup. Prefer Facebook Marketplace? We list there too.</p>
+    </li>
+  </ol>
+  <p class="how-note reveal">A few custom slots open each week. One maker, real hands, no factory.</p>
+</section>
+
+<!-- ============ MAKER ============ -->
+<section class="maker" id="maker">
+  <div class="maker-visual reveal">
+    <!-- TODO(준서님): 본인 사진 또는 작업실 사진으로 교체 — '메이커의 얼굴'이 신뢰의 핵심 -->
+    <img src="https://images.unsplash.com/photo-1611117775350-ac3950990985?auto=format&fit=crop&w=1000&q=80" alt="The Printelier studio, mid-print" />
+  </div>
+  <div class="maker-copy reveal">
+    <h2>Hi, I&rsquo;m Junseo.</h2>
+    <p>
+      I run Printelier from my studio in Vancouver. Every order here is
+      designed, printed, sanded and packed by me, which is exactly why
+      I can promise a free preview and a free reprint: I check every
+      layer before it ever reaches you.
+    </p>
+    <p>
+      I started printing gifts for people I care about. Watching someone
+      recognize their kid&rsquo;s name, or their own photo, inside an object
+      that did not exist yesterday, that never gets old. Now I make those
+      moments to order.
+    </p>
+    <p class="maker-sign">Junseo · Printelier, Vancouver</p>
+  </div>
+</section>
+
+<!-- ============ ORDER FORM ============ -->
+<section class="order" id="order">
+  <div class="order-inner">
+    <div class="order-copy reveal">
+      <h2>Start your custom order</h2>
+      <p>
+        No payment now. We reply within 24 hours with ideas, a design
+        preview and an exact quote. If it is not right, you owe nothing.
+      </p>
+      <ul class="order-points">
+        <li>Free design preview, always</li>
+        <li>Interac e-Transfer or cash at pickup</li>
+        <li>Free pickup in Vancouver</li>
+      </ul>
+      <!-- 즉시 견적: "물어보기 무서워서" 이탈하는 사람을 잡는다 -->
+      <div class="estimator">
+        <h3>Quick estimate</h3>
+        <div class="est-row">
+          <select id="estItem" aria-label="Item type"></select>
+          <select id="estSize" aria-label="Size">
+            <option value="0.8">Small</option>
+            <option value="1" selected>Medium</option>
+            <option value="1.6">Large</option>
+          </select>
+        </div>
+        <p class="est-out" id="estOut">$25 – $45 typical</p>
+        <p class="est-note">Ballpark only. Your exact quote comes free with the preview.</p>
+      </div>
+    </div>
+    <!-- TODO(준서님): Formspree에서 새 폼 만들고 아래 action의 YOUR_FORM_ID 교체 (formspree.io, 무료)
+         교체 전에는 제출 시 이메일 앱이 열리는 방식으로 자동 작동합니다 -->
+    <form class="order-form reveal" id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <!-- 스팸봇 함정: 사람은 안 보이지만 봇은 채움 → 채워지면 자동 폐기 -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+      <div class="field-row">
+        <label>Your name
+          <input type="text" name="name" required placeholder="Alex Kim" />
+        </label>
+        <label>Email
+          <input type="email" name="email" required placeholder="you@email.com" />
+        </label>
+      </div>
+      <label>What would you like?
+        <select name="item" id="itemSelect">
+          <option>Name sign or nightlight</option>
+          <option>Photo lithophane</option>
+          <option>Articulated toy</option>
+          <option>Kids room decor</option>
+          <option>Planter or home decor</option>
+          <option>Something else entirely</option>
+        </select>
+      </label>
+      <label>Personalization <span class="optional">name, date, colours...</span>
+        <input type="text" name="personalization" placeholder='e.g. "Mila", soft pink and cream' />
+      </label>
+      <div class="field-row">
+        <label>Budget
+          <select name="budget">
+            <option>Under $25</option>
+            <option selected>$25 – $50</option>
+            <option>$50 – $100</option>
+            <option>$100+</option>
+          </select>
+        </label>
+        <label>Needed by <span class="optional">optional</span>
+          <input type="text" name="deadline" placeholder="e.g. birthday on Aug 12" />
+        </label>
+      </div>
+      <label>Tell us more
+        <textarea name="details" rows="4" placeholder="Describe the idea, link a reference photo, anything helps."></textarea>
+      </label>
+      <button class="btn btn-primary btn-full" type="submit">Request my free preview</button>
+      <p class="form-note" id="formNote">Replies within 24 hours · No payment until you approve</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="section-head reveal">
+    <h2>Questions, answered</h2>
+  </div>
+  <div class="faq-list reveal">
+    <details>
+      <summary>How much does a custom piece cost?</summary>
+      <p>Most pieces land between $15 and $60. Larger or intricate work (big lithophane lamps, multi-part decor) can be more. You always get an exact price with your free preview, before any payment.</p>
+    </details>
+    <details>
+      <summary>How do I pay?</summary>
+      <p>Interac e-Transfer once you approve your preview, or cash at pickup. If you found us on Facebook Marketplace, you can complete the purchase there instead, whatever feels most comfortable.</p>
+    </details>
+    <details>
+      <summary>How long will my order take?</summary>
+      <p>Most pieces are designed, printed and finished within 3 to 7 days. If you have a hard date (a birthday, a shower), tell us in the form and we will confirm it is doable before you commit.</p>
+    </details>
+    <details>
+      <summary>Do you ship, or pickup only?</summary>
+      <p>Free pickup in Vancouver. Local delivery is available for a small fee, and we can ship anywhere in Canada via Canada Post at cost.</p>
+    </details>
+    <details>
+      <summary>What are the pieces made of? Safe for kids?</summary>
+      <p>We print primarily in PLA, a rigid plant-based plastic that is sturdy and lightweight. Decorative pieces are fine anywhere; for toys, we design without small detachable parts and recommend supervised play for children under 3, as with any small object.</p>
+    </details>
+    <details>
+      <summary>Can I just buy from your Facebook listings?</summary>
+      <p>Absolutely. Ready-made pieces are on Facebook Marketplace. This site is for the custom work: when you want a name, a photo or an idea made real, start here.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <span class="wordmark">Printelier<span>.</span></span>
+    <p>Custom 3D print studio · Vancouver, BC</p>
+  </div>
+  <div class="footer-links">
+    <!-- TODO(준서님): 페이스북 마켓플레이스 프로필 링크로 교체 -->
+    <a href="https://www.facebook.com/marketplace" target="_blank" rel="noopener">Facebook Marketplace ↗</a>
+    <a href="mailto:vestpaul@gmail.com">vestpaul@gmail.com</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+  <p class="fine">© 2026 Printelier. Made in Vancouver, one layer at a time.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
