@@ -34,6 +34,37 @@
       "editor": { "type": "topper", "text": "Happy 5th" }
     },
     {
+      "id": "name-puzzle",
+      "title": "Name puzzles",
+      "desc": "Every letter its own chunky piece, snug in a tray. Learning that feels like play. Design it live in 3D.",
+      "priceFrom": 28,
+      "priceTypical": 45,
+      "img": "https://images.unsplash.com/photo-1595707678349-4b3f482bfbd3?auto=format&fit=crop&w=900&q=80",
+      "alt": "A colourful personalized name puzzle with chunky letter pieces",
+      "active": true,
+      "editor": { "type": "namepuzzle", "text": "MILA" }
+    },
+    {
+      "id": "dino-puzzle",
+      "title": "Dino skeleton puzzles",
+      "desc": "Bone-matching tray puzzle, T-rex, Trike and friends, with your child's name on the tray.",
+      "priceFrom": 24,
+      "priceTypical": 40,
+      "img": "https://images.unsplash.com/photo-1567962443865-54d86d79e090?auto=format&fit=crop&w=900&q=80",
+      "alt": "A dinosaur skeleton puzzle with bone pieces fitting into a tray",
+      "active": true
+    },
+    {
+      "id": "dino-dig",
+      "title": "Dino dig kits",
+      "desc": "The upgrade: bones buried in a dig box, shovel and pick included. Excavate, then build your dinosaur.",
+      "priceFrom": 35,
+      "priceTypical": 60,
+      "img": "https://images.unsplash.com/photo-1778971635454-ab501aba7e61?auto=format&fit=crop&w=900&q=80",
+      "alt": "A child excavating dinosaur bones from a dig kit with little tools",
+      "active": true
+    },
+    {
       "id": "lithophanes",
       "title": "Photo lithophanes",
       "desc": "Your photo, hidden in the print until the light comes on. Pure magic.",

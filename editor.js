@@ -82,7 +82,12 @@ function resize() {
 window.__snap = () => {
   renderer.render(scene, camera);
   const d = canvas.toDataURL('image/png');
-  return { bytes: d.length, tris: renderer.info.render.triangles, calls: renderer.info.render.calls };
+  const box = new THREE.Box3().setFromObject(modelGroup);
+  const size = box.getSize(new THREE.Vector3());
+  return {
+    bytes: d.length, tris: renderer.info.render.triangles, calls: renderer.info.render.calls,
+    model: { w: +size.x.toFixed(1), h: +size.y.toFixed(1), d: +size.z.toFixed(1) }
+  };
 };
 
 // ---------- 재료 ----------
@@ -101,14 +106,28 @@ function getFont(name) {
 // ---------- 공용: 텍스트 지오메트리 ----------
 function makeText(font, text, size, depth) {
   const geo = new TextGeometry(text, {
-    font, size, depth, curveSegments: 6,
-    bevelEnabled: true, bevelThickness: 0.5, bevelSize: 0.35, bevelSegments: 2
+    // three r161은 두께 파라미터가 height (r163+에서 depth로 개명) — 둘 다 넘겨 안전하게
+    font, size, height: depth, depth, curveSegments: 6,
+    bevelEnabled: true, bevelThickness: 0.4, bevelSize: 0.3, bevelSegments: 2
   });
   geo.computeBoundingBox();
   const bb = geo.boundingBox;
   const w = bb.max.x - bb.min.x, h = bb.max.y - bb.min.y;
   geo.translate(-bb.min.x - w / 2, -bb.min.y, -depth / 2); // 가로 중앙, 바닥 0 정렬
   return { geo, w, h };
+}
+
+// 개별 글자 (왼쪽 정렬 — 퍼즐 조각용)
+function makeGlyph(font, ch, size, depth) {
+  const geo = new TextGeometry(ch, {
+    font, size, height: depth, depth, curveSegments: 6,
+    bevelEnabled: true, bevelThickness: 0.4, bevelSize: 0.3, bevelSegments: 2
+  });
+  geo.computeBoundingBox();
+  const bb = geo.boundingBox;
+  const w = bb.max.x - bb.min.x;
+  geo.translate(-bb.min.x, -bb.min.y, -depth / 2);
+  return { geo, w };
 }
 
 // 라운드 사각형 Shape (+선택적 구멍)
@@ -182,7 +201,48 @@ function buildTopper(font) {
   return { group: g, camDist: Math.max(110, w * 2.4) };
 }
 
-const BUILDERS = { keychain: buildKeychain, nameplate: buildNameplate, topper: buildTopper };
+function buildNamePuzzle(font) {
+  const g = new THREE.Group();
+  const text = state.text.toUpperCase();
+  const startIdx = Math.max(0, COLORS.indexOf(state.textColor));
+
+  // 글자별 지오메트리 준비 + 전체 폭 계산
+  const glyphs = [];
+  let totalW = 0;
+  for (const ch of text) {
+    if (ch === ' ') { glyphs.push(null); totalW += 9; continue; }
+    const gl = makeGlyph(font, ch, 15, 6);
+    glyphs.push(gl);
+    totalW += gl.w + 3.5;
+  }
+  totalW = Math.max(totalW - 3.5, 10);
+
+  // 받침 트레이
+  const trayW = totalW + 18, trayD = 34;
+  const tray = new THREE.Mesh(
+    new THREE.ExtrudeGeometry(roundedRect(trayW, trayD, 10), { depth: 5, bevelEnabled: false }),
+    mat(state.baseColor)
+  );
+  tray.rotation.x = -Math.PI / 2;
+  tray.position.y = 5;
+  g.add(tray);
+
+  // 퍼즐 조각들: 색이 하나씩 순환
+  let x = -totalW / 2;
+  let ci = 0;
+  for (const gl of glyphs) {
+    if (!gl) { x += 9; continue; }
+    const piece = new THREE.Mesh(gl.geo, mat(COLORS[(startIdx + ci) % COLORS.length]));
+    piece.rotation.x = -Math.PI / 2;
+    piece.position.set(x, 11, 5.5);
+    g.add(piece);
+    x += gl.w + 3.5;
+    ci++;
+  }
+  return { group: g, camDist: Math.max(120, trayW * 2.0) };
+}
+
+const BUILDERS = { keychain: buildKeychain, nameplate: buildNameplate, topper: buildTopper, namepuzzle: buildNamePuzzle };
 
 // ---------- 리빌드 ----------
 let firstBuild = true;
@@ -264,6 +324,9 @@ document.getElementById('orderBtn').addEventListener('click', () => {
   } catch {}
   if (state.type === 'topper') {
     document.getElementById('ctlBase').style.display = 'none'; // 토퍼는 단색
+  }
+  if (state.type === 'namepuzzle') {
+    document.getElementById('textColorLabel').textContent = 'Piece colours · pick the first, the rest follow';
   }
   swatchRow(document.getElementById('swBase'), state.baseColor, (c) => { state.baseColor = c; rebuild(); });
   swatchRow(document.getElementById('swText'), state.textColor, (c) => { state.textColor = c; rebuild(); });
