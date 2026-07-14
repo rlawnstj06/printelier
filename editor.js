@@ -242,7 +242,51 @@ function buildNamePuzzle(font) {
   return { group: g, camDist: Math.max(120, trayW * 2.0) };
 }
 
-const BUILDERS = { keychain: buildKeychain, nameplate: buildNameplate, topper: buildTopper, namepuzzle: buildNamePuzzle };
+// 제네릭 차 실루엣 (측면, 휠 아치 컷) — 특정 브랜드 아님(상표권 안전)
+function carShape() {
+  const s = new THREE.Shape();
+  s.moveTo(0, 4);
+  s.quadraticCurveTo(0.5, 8.5, 6, 9);       // 뒷범퍼 → 트렁크
+  s.quadraticCurveTo(11, 14.5, 19, 14.8);   // 뒷유리 → 루프
+  s.lineTo(26, 14.8);                        // 루프
+  s.quadraticCurveTo(33, 14.2, 38, 9.5);    // 앞유리
+  s.quadraticCurveTo(43.5, 8.8, 44, 5.5);   // 보닛 → 노즈
+  s.quadraticCurveTo(44, 4, 42.5, 4);       // 앞범퍼
+  s.lineTo(38.5, 4);
+  s.absarc(33.5, 4, 5, 0, Math.PI, false);  // 앞바퀴 아치
+  s.lineTo(15.5, 4);
+  s.absarc(10.5, 4, 5, 0, Math.PI, false);  // 뒷바퀴 아치
+  s.lineTo(0, 4);
+  return s;
+}
+
+function buildCar(font) {
+  const g = new THREE.Group();
+  const sub = new THREE.Group();
+  const plateW = 68, plateH = 30;
+
+  const plate = new THREE.Mesh(
+    new THREE.ExtrudeGeometry(roundedRect(plateW, plateH, 4.5, -plateW / 2 + 7), { depth: 4, bevelEnabled: false }),
+    mat(state.baseColor)
+  );
+  sub.add(plate);
+
+  const car = new THREE.Mesh(new THREE.ExtrudeGeometry(carShape(), { depth: 2.6, bevelEnabled: false }), mat(state.textColor));
+  car.position.set(-17, -0.5, 4);
+  sub.add(car);
+
+  const { geo: tGeo } = makeText(font, state.text, 8.2, 2.6);
+  const txt = new THREE.Mesh(tGeo, mat(state.textColor));
+  txt.position.set(3, -13.5, 5.3);
+  sub.add(txt);
+
+  sub.rotation.x = -Math.PI / 2; // 키체인처럼 눕히기
+  sub.position.y = 1;
+  g.add(sub);
+  return { group: g, camDist: 165 };
+}
+
+const BUILDERS = { keychain: buildKeychain, nameplate: buildNameplate, topper: buildTopper, namepuzzle: buildNamePuzzle, car: buildCar };
 
 // ---------- 리빌드 ----------
 let firstBuild = true;
@@ -327,6 +371,10 @@ document.getElementById('orderBtn').addEventListener('click', () => {
   }
   if (state.type === 'namepuzzle') {
     document.getElementById('textColorLabel').textContent = 'Piece colours · pick the first, the rest follow';
+  }
+  if (state.type === 'car') {
+    document.getElementById('textColorLabel').textContent = 'Car & plate lettering colour';
+    document.getElementById('cText').maxLength = 9; // 번호판 길이
   }
   swatchRow(document.getElementById('swBase'), state.baseColor, (c) => { state.baseColor = c; rebuild(); });
   swatchRow(document.getElementById('swText'), state.textColor, (c) => { state.textColor = c; rebuild(); });

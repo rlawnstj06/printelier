@@ -116,6 +116,18 @@
       "category": "pets"
     },
     {
+      "id": "car-keychain",
+      "title": "Car plate keychains",
+      "desc": "Your plate number under a little car. The new-driver gift that actually gets used. Design it live in 3D.",
+      "priceFrom": 14,
+      "priceTypical": 24,
+      "img": "https://images.unsplash.com/photo-1533558701576-23c65e0272fb?auto=format&fit=crop&w=900&q=80",
+      "alt": "A hand holding car keys with a personalized plate keychain",
+      "active": true,
+      "category": "home",
+      "editor": { "type": "car", "text": "BC 4EVR" }
+    },
+    {
       "id": "cookie-cutters",
       "title": "Custom cookie cutters",
       "desc": "Any name, logo or shape as a cutter. Home bakers and cafes, this one is for you.",
