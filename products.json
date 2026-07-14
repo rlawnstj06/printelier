@@ -9,6 +9,7 @@
       "img": "https://images.unsplash.com/photo-1638959492386-f9a68d55c374?auto=format&fit=crop&w=900&q=80",
       "alt": "Colorful personalized name keychains, freshly printed",
       "active": true,
+      "category": "home",
       "editor": { "type": "keychain", "text": "ALEX" }
     },
     {
@@ -20,6 +21,7 @@
       "img": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=900&q=80",
       "alt": "A child's name glowing softly as a custom nightlight",
       "active": true,
+      "category": "kids",
       "editor": { "type": "nameplate", "text": "Mila" }
     },
     {
@@ -31,6 +33,7 @@
       "img": "https://images.unsplash.com/photo-1617272949720-7f735c54a1bc?auto=format&fit=crop&w=900&q=80",
       "alt": "A personalized topper standing on a birthday cake",
       "active": true,
+      "category": "home",
       "editor": { "type": "topper", "text": "Happy 5th" }
     },
     {
@@ -42,6 +45,7 @@
       "img": "https://images.unsplash.com/photo-1595707678349-4b3f482bfbd3?auto=format&fit=crop&w=900&q=80",
       "alt": "A colourful personalized name puzzle with chunky letter pieces",
       "active": true,
+      "category": "kids",
       "editor": { "type": "namepuzzle", "text": "MILA" }
     },
     {
@@ -52,7 +56,8 @@
       "priceTypical": 40,
       "img": "https://images.unsplash.com/photo-1567962443865-54d86d79e090?auto=format&fit=crop&w=900&q=80",
       "alt": "A dinosaur skeleton puzzle with bone pieces fitting into a tray",
-      "active": true
+      "active": true,
+      "category": "kids"
     },
     {
       "id": "dino-dig",
@@ -62,7 +67,8 @@
       "priceTypical": 50,
       "img": "https://images.unsplash.com/photo-1778971635454-ab501aba7e61?auto=format&fit=crop&w=900&q=80",
       "alt": "A child excavating dinosaur bones from a dig kit with little tools",
-      "active": true
+      "active": true,
+      "category": "kids"
     },
     {
       "id": "dino-balance",
@@ -72,7 +78,42 @@
       "priceTypical": 42,
       "img": "https://images.unsplash.com/photo-1594745087095-65dc6316dab6?auto=format&fit=crop&w=900&q=80",
       "alt": "Colourful toy dinosaurs ready for a balancing game",
-      "active": true
+      "active": true,
+      "category": "kids"
+    },
+    {
+      "id": "pet-tag",
+      "title": "Pet name tags",
+      "desc": "Their name on the collar, in your colours. Design it live in 3D.",
+      "priceFrom": 12,
+      "priceTypical": 18,
+      "img": "https://images.unsplash.com/photo-1682969651476-6fb48aba8b03?auto=format&fit=crop&w=900&q=80",
+      "alt": "A dog wearing a collar with a personalized name tag",
+      "active": true,
+      "category": "pets",
+      "editor": { "type": "keychain", "text": "COCO" }
+    },
+    {
+      "id": "pet-bowl-stand",
+      "title": "Pet bowl stands",
+      "desc": "A raised feeding stand with their name on the front. Dinner, served properly.",
+      "priceFrom": 25,
+      "priceTypical": 45,
+      "img": "https://images.unsplash.com/photo-1714068691210-073dc52c6c1d?auto=format&fit=crop&w=900&q=80",
+      "alt": "A dog at its feeding bowl on a raised stand",
+      "active": true,
+      "category": "pets"
+    },
+    {
+      "id": "leash-hook",
+      "title": "Leash & collar hooks",
+      "desc": "An entryway hook with their name, so walkies always start on time.",
+      "priceFrom": 18,
+      "priceTypical": 30,
+      "img": "https://images.unsplash.com/photo-1773098587053-e96c7302ff22?auto=format&fit=crop&w=900&q=80",
+      "alt": "A dog leash hanging by the front door",
+      "active": true,
+      "category": "pets"
     },
     {
       "id": "cookie-cutters",
@@ -82,7 +123,8 @@
       "priceTypical": 18,
       "img": "https://images.unsplash.com/photo-1610558128766-64f6b95ba135?auto=format&fit=crop&w=900&q=80",
       "alt": "Cookie dough being cut with custom-shaped cutters",
-      "active": true
+      "active": true,
+      "category": "home"
     },
     {
       "id": "phone-stands",
@@ -92,17 +134,19 @@
       "priceTypical": 22,
       "img": "https://images.unsplash.com/photo-1635384737765-c5ce0e621141?auto=format&fit=crop&w=900&q=80",
       "alt": "A phone resting on a minimal desk stand",
-      "active": true
+      "active": true,
+      "category": "home"
     },
     {
       "id": "lithophanes",
       "title": "Photo lithophanes",
-      "desc": "Your photo, hidden in the print until the light comes on. Pure magic.",
+      "desc": "Your photo, hidden in the print until the light comes on. Family, weddings, and yes, your pet.",
       "priceFrom": 45,
       "priceTypical": 70,
       "img": "https://images.unsplash.com/photo-1611505908502-5b67e53e3a76?auto=format&fit=crop&w=900&q=80",
       "alt": "A photo lithophane revealing a family portrait when lit",
-      "active": true
+      "active": true,
+      "category": "home"
     },
     {
       "id": "articulated-toys",
@@ -112,7 +156,8 @@
       "priceTypical": 28,
       "img": "https://images.unsplash.com/photo-1596138252452-463802fb8fc1?auto=format&fit=crop&w=900&q=80",
       "alt": "An articulated dragon toy, printed in one piece, no assembly",
-      "active": true
+      "active": true,
+      "category": "kids"
     },
     {
       "id": "kids-decor",
@@ -122,7 +167,8 @@
       "priceTypical": 38,
       "img": "https://images.unsplash.com/photo-1498940757830-82f7813bf178?auto=format&fit=crop&w=900&q=80",
       "alt": "Playful custom decor in a kid's room",
-      "active": true
+      "active": true,
+      "category": "kids"
     },
     {
       "id": "planters",
@@ -132,7 +178,8 @@
       "priceTypical": 32,
       "img": "https://images.unsplash.com/photo-1572688484438-313a6e50c333?auto=format&fit=crop&w=900&q=80",
       "alt": "A sculptural planter on a bright shelf",
-      "active": true
+      "active": true,
+      "category": "home"
     }
   ]
 }

@@ -1,10 +1,18 @@
-// ---------- 데이터 로드 (products.json / reviews.json — 커맨드 센터에서 관리) ----------
+// ---------- 데이터 로드 (products.json / reviews.json — 관리자에서 관리) ----------
 let PRODUCTS = [];
+let activeCat = 'all';
+const CATS = [
+  ['all', 'Everything'],
+  ['kids', 'For kids'],
+  ['pets', 'For pets'],
+  ['home', 'Home & gifts']
+];
 
 async function loadData() {
   try {
     const p = await fetch('products.json?v=' + Date.now()).then((r) => r.json());
     PRODUCTS = (p.items || []).filter((x) => x.active !== false);
+    renderChips();
     renderProducts();
     syncFormOptions();
     initEstimator();
@@ -20,10 +28,25 @@ async function loadData() {
 const escHtml = (s) =>
   String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+function renderChips() {
+  const el = document.getElementById('catChips');
+  el.innerHTML = CATS.map(
+    ([id, label]) => `<button class="chip ${id === activeCat ? 'on' : ''}" data-cat="${id}">${label}</button>`
+  ).join('');
+  el.querySelectorAll('.chip').forEach((b) =>
+    b.addEventListener('click', () => {
+      activeCat = b.dataset.cat;
+      el.querySelectorAll('.chip').forEach((x) => x.classList.toggle('on', x.dataset.cat === activeCat));
+      renderProducts();
+    })
+  );
+}
+
 function renderProducts() {
   const grid = document.getElementById('workGrid');
+  const list = activeCat === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.category === activeCat);
   grid.innerHTML =
-    PRODUCTS.map((p) =>
+    list.map((p) =>
       p.editor
         ? `
     <a class="card card-live reveal" href="editor.html?item=${escHtml(p.id)}">

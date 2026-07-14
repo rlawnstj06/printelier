@@ -135,6 +135,18 @@ a { color: inherit; }
 
 /* ---------- 갤러리 ---------- */
 .work { padding: clamp(30px, 5vh, 60px) 0 clamp(64px, 9vh, 110px); }
+.cat-chips {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  max-width: 1280px; margin: 0 auto 26px; padding: 0 clamp(20px, 5vw, 64px);
+}
+.chip {
+  font-family: var(--body); font-weight: 600; font-size: 15px;
+  padding: 10px 22px; border-radius: 999px; cursor: pointer;
+  background: #fff; color: var(--ink-soft); border: 1.5px solid var(--line);
+  transition: all 0.2s;
+}
+.chip:hover { border-color: var(--clay); color: var(--ink); }
+.chip.on { background: var(--clay); border-color: var(--clay); color: #fff; }
 .work-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px;
   max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px);
