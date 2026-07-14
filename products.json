@@ -75,6 +75,26 @@
       "active": true
     },
     {
+      "id": "cookie-cutters",
+      "title": "Custom cookie cutters",
+      "desc": "Any name, logo or shape as a cutter. Home bakers and cafes, this one is for you.",
+      "priceFrom": 10,
+      "priceTypical": 18,
+      "img": "https://images.unsplash.com/photo-1610558128766-64f6b95ba135?auto=format&fit=crop&w=900&q=80",
+      "alt": "Cookie dough being cut with custom-shaped cutters",
+      "active": true
+    },
+    {
+      "id": "phone-stands",
+      "title": "Name phone stands",
+      "desc": "A desk stand with their name on the front. Small gift, daily use.",
+      "priceFrom": 14,
+      "priceTypical": 22,
+      "img": "https://images.unsplash.com/photo-1635384737765-c5ce0e621141?auto=format&fit=crop&w=900&q=80",
+      "alt": "A phone resting on a minimal desk stand",
+      "active": true
+    },
+    {
       "id": "lithophanes",
       "title": "Photo lithophanes",
       "desc": "Your photo, hidden in the print until the light comes on. Pure magic.",
