@@ -294,7 +294,8 @@ async function rebuild() {
   const font = await getFont(state.font);
   scene.remove(modelGroup);
   modelGroup.traverse((o) => { o.geometry?.dispose(); o.material?.dispose(); });
-  const { group, camDist } = BUILDERS[state.type](font);
+  const builder = BUILDERS[state.type] || buildKeychain; // 알 수 없는 타입(캐시 불일치 등)이어도 죽지 않게
+  const { group, camDist } = builder(font);
   modelGroup = group;
   scene.add(modelGroup);
   if (firstBuild) {

@@ -125,6 +125,21 @@
   </aside>
 </div>
 
+<script>
+// 3D 로딩 감시견: 12초 안에 3D가 안 뜨면 (CDN 캐시/차단/구형 기기) 안내로 전환
+setTimeout(() => {
+  const el = document.getElementById('stageLoad');
+  if (el && !window.__snap) {
+    el.innerHTML = 'The 3D preview didn’t load.<br>Please refresh with <b>Ctrl+F5</b> — or just order below, we’ll send you a photo preview for free.';
+    el.style.textAlign = 'center';
+    el.style.lineHeight = '1.7';
+  }
+}, 12000);
+window.addEventListener('unhandledrejection', () => {
+  const el = document.getElementById('stageLoad');
+  if (el && !window.__snap) el.textContent = '3D preview failed — please refresh (Ctrl+F5).';
+});
+</script>
 <script type="importmap">
 {
   "imports": {
@@ -133,6 +148,6 @@
   }
 }
 </script>
-<script type="module" src="editor.js"></script>
+<script type="module" src="editor.js?v=4"></script>
 </body>
 </html>
