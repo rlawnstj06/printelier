@@ -138,36 +138,56 @@ document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 const nav = document.getElementById('nav');
 addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
 
-// ---------- 주문 폼: Formspree 미설정 시 이메일 초안 폴백 ----------
-const form = document.getElementById('orderForm');
-const note = document.getElementById('formNote');
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const btn = form.querySelector('button');
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
+// ---------- 폼 공용 핸들러 (단품/대량주문/디왈리 웨이트리스트) ----------
+// Formspree 미설정 시 이메일 초안 폴백 → 설정 전에도 문의를 놓치지 않음
+document.querySelectorAll('form.ajax-form').forEach((form) => {
+  const note = form.querySelector('.form-note');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const btn = form.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
 
-  const configured = !form.action.includes('YOUR_FORM_ID');
-  if (configured) {
-    try {
-      const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-      if (!res.ok) throw new Error();
-      form.reset();
-      note.textContent = '✓ Sent! Check your inbox, we reply within 24 hours.';
+    const configured = !form.action.includes('YOUR_FORM_ID');
+    if (configured) {
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error();
+        form.reset();
+        note.textContent = '✓ Sent! We reply within 24 hours.';
+        note.classList.add('ok');
+      } catch {
+        note.textContent = 'Something went wrong. Email us directly: vestpaul@gmail.com';
+      }
+    } else {
+      const subject = form.dataset.subject || 'Printelier request';
+      const body = [...data.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
+      location.href = `mailto:vestpaul@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      note.textContent = '✓ Your email app opened with the request, just press send.';
       note.classList.add('ok');
-    } catch {
-      note.textContent = 'Something went wrong. Email us directly: vestpaul@gmail.com';
     }
-  } else {
-    const body = [...data.entries()].map(([k, v]) => `${k}: ${v}`).join('\n');
-    location.href = `mailto:vestpaul@gmail.com?subject=${encodeURIComponent('Custom order request - Printelier')}&body=${encodeURIComponent(body)}`;
-    note.textContent = '✓ Your email app opened with the request, just press send.';
-    note.classList.add('ok');
-  }
-  btn.disabled = false;
-  btn.textContent = 'Request my free preview';
+    btn.disabled = false;
+    btn.textContent = orig;
+  });
 });
+
+// ---------- 디왈리 카운트다운 (2026-11-08) ----------
+(function diwaliCountdown() {
+  const el = document.getElementById('diwaliCountdown');
+  if (!el) return;
+  const target = new Date('2026-11-08T00:00:00-08:00');
+  const tick = () => {
+    const ms = target - Date.now();
+    if (ms <= 0) { el.textContent = '✨ Happy Diwali!'; return; }
+    const d = Math.floor(ms / 86400000);
+    const h = Math.floor((ms % 86400000) / 3600000);
+    el.textContent = `✨ ${d} days ${h} hrs until Diwali`;
+  };
+  tick();
+  setInterval(tick, 60000);
+})();
 
 // ---------- 3D 에디터에서 만든 디자인 자동 입력 ----------
 (function applyEditorConfig() {

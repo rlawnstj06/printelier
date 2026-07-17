@@ -329,7 +329,10 @@ function swatchRow(el, cur, onPick) {
 }
 
 document.getElementById('cText').addEventListener('input', (e) => {
-  state.text = e.target.value.trim() || 'NAME';
+  const v = e.target.value;
+  // 구르무키/데바나가리 등 비라틴 문자는 3D 폰트가 지원 안 함 → 안내 표시
+  document.getElementById('scriptNote').style.display = /[^ -ɏ]/.test(v) ? 'block' : 'none';
+  state.text = v.trim() || 'NAME';
   rebuild();
 });
 document.querySelectorAll('.fbtn').forEach((b) =>

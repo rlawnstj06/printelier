@@ -10,6 +10,9 @@
   --clay: oklch(60% 0.13 42);
   --clay-deep: oklch(50% 0.12 40);
   --clay-tint: oklch(93% 0.03 50);
+  --gold: oklch(70% 0.13 78);
+  --gold-deep: oklch(56% 0.12 72);
+  --gold-tint: oklch(95.5% 0.035 85);
   --line: oklch(88% 0.015 70);
   --display: "Bricolage Grotesque", sans-serif;
   --body: "Figtree", sans-serif;
@@ -132,6 +135,76 @@ a { color: inherit; }
 /* ---------- 섹션 공통 ---------- */
 .section-head { max-width: 1280px; margin: 0 auto 44px; padding: 0 clamp(20px, 5vw, 64px); }
 .section-head p { color: var(--ink-soft); font-size: 18px; margin-top: 14px; max-width: 38em; }
+
+/* ---------- 웨딩/디왈리 (골드 섹션) ---------- */
+.pa { font-family: "Noto Sans Gurmukhi", var(--body); font-weight: 700; }
+.hero-pa { margin-top: 20px; font-size: 16px; color: var(--gold-deep); }
+.hero-pa .pa { font-size: 19px; margin-right: 6px; }
+.kicker {
+  font-weight: 700; font-size: 14px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold-deep); margin-bottom: 14px;
+}
+.kicker .pa { text-transform: none; font-size: 17px; letter-spacing: 0; }
+.gold-section {
+  background: var(--gold-tint);
+  border-radius: clamp(28px, 5vw, 56px);
+  margin: 0 clamp(10px, 2vw, 24px) clamp(28px, 4vh, 48px);
+  padding: clamp(56px, 8vh, 96px) 0 clamp(48px, 7vh, 80px);
+}
+.gold-section .card { background: var(--paper); }
+.price.gold { color: var(--gold-deep); }
+.btn-gold {
+  background: var(--gold); color: oklch(20% 0.03 80);
+  box-shadow: 0 10px 26px -10px oklch(70% 0.13 78 / 0.6);
+}
+.btn-gold:hover { background: var(--gold-deep); color: #fff; transform: translateY(-2px); }
+
+.bulk-wrap {
+  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(28px, 4vw, 56px);
+  max-width: 1280px; margin: 44px auto 0; padding: 0 clamp(20px, 5vw, 64px);
+  align-items: start;
+}
+.bulk-copy h3 { font-size: 28px; margin-bottom: 14px; }
+.bulk-copy p { color: var(--ink-soft); max-width: 30em; }
+.order-points.dark li::before { color: var(--gold-deep); }
+.order-points.dark { color: var(--ink); }
+
+.countdown {
+  display: inline-flex; gap: 8px; margin-top: 18px;
+  font-family: var(--display); font-weight: 700; font-size: 20px;
+  color: var(--gold-deep); font-variant-numeric: tabular-nums;
+}
+.waitlist {
+  max-width: 640px; margin: 40px auto 0; padding: 0 clamp(20px, 5vw, 64px);
+  text-align: center;
+}
+.waitlist p { color: var(--ink); }
+.waitlist-row { display: flex; gap: 10px; margin-top: 14px; }
+.waitlist-row input {
+  flex: 1; font-family: var(--body); font-size: 16px; padding: 13px 16px;
+  border: 1.5px solid oklch(70% 0.08 80 / 0.5); border-radius: 999px;
+  background: var(--paper); color: var(--ink);
+}
+.waitlist-row input:focus { outline: none; border-color: var(--gold-deep); }
+
+.bulk-how {
+  max-width: 1280px; margin: 48px auto 0; padding: 0 clamp(20px, 5vw, 64px);
+}
+.bulk-how h3 { margin-bottom: 16px; }
+.mini-steps {
+  list-style: none; padding: 0; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+}
+.mini-steps li {
+  background: var(--paper); border-radius: var(--r-md); padding: 18px 20px;
+  font-size: 14.5px; color: var(--ink-soft); box-shadow: var(--shadow-sm);
+}
+.mini-steps b { color: var(--gold-deep); display: block; margin-bottom: 6px; }
+
+@media (max-width: 900px) {
+  .bulk-wrap { grid-template-columns: 1fr; }
+  .waitlist-row { flex-direction: column; }
+}
 
 /* ---------- 갤러리 ---------- */
 .work { padding: clamp(30px, 5vh, 60px) 0 clamp(64px, 9vh, 110px); }
