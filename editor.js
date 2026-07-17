@@ -79,6 +79,12 @@ function resize() {
 })();
 
 // 개발 검증용 훅: 렌더 직후 캔버스를 캡처해 실제로 그려졌는지 확인
+// 샘플 이미지 추출용: 현재 장면을 PNG dataURL로 반환
+window.__shot = () => {
+  renderer.render(scene, camera);
+  return canvas.toDataURL('image/png');
+};
+
 window.__snap = () => {
   renderer.render(scene, camera);
   const d = canvas.toDataURL('image/png');
@@ -303,6 +309,10 @@ async function rebuild() {
     controls.target.set(0, state.type === 'topper' ? 24 : 8, 0);
     document.getElementById('stageLoad').style.display = 'none';
     firstBuild = false;
+  } else {
+    // 텍스트가 길어져 모델이 커져도 프레임 밖으로 안 잘리게 거리 자동 보정 (회전 각도는 유지)
+    const dir = camera.position.clone().sub(controls.target).normalize();
+    camera.position.copy(controls.target).addScaledVector(dir, camDist);
   }
   updateEstimate();
 }
